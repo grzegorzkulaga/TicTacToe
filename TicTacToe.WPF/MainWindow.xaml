@@ -8,7 +8,7 @@
         Title="TicTacToe" Height="350" Width="250">
     <StackPanel>
         <Grid>
-            <Grid HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="250">
+            <Grid HorizontalAlignment="Stretch" Height="250" ShowGridLines="True">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
@@ -23,11 +23,39 @@
                     <ColumnDefinition Width="50" />
                     <ColumnDefinition Width="50" />
                 </Grid.ColumnDefinitions>
+                
+                <StackPanel Name="parent" Grid.Row="0" Grid.Column="0">
+                    <Canvas Background="White" Name="canvas" Width="50" Height="50">
+                        <Ellipse Name="bola" Canvas.Left="5" Canvas.Top="5" Width="40" Height="40" Fill="Green"  />
+                    </Canvas>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="3">
+                    <Canvas Background="White" Width="50" Height="50">
+                        <Line
+    X1="5" Y1="5"
+    X2="45" Y2="45"
+    StrokeThickness="4"
+    Canvas.Left="0">
+                            <Line.Stroke>
+                                <SolidColorBrush Color="Red"></SolidColorBrush>
+                            </Line.Stroke>
+                        </Line>
+                        <Line
+    X1="45" Y1="5"
+    X2="5" Y2="45"
+    StrokeThickness="4"
+    Canvas.Left="0">
+                            <Line.Stroke>
+                                <SolidColorBrush Color="Red"></SolidColorBrush>
+                            </Line.Stroke>
+                        </Line>
+                    </Canvas>
+                </StackPanel>
             </Grid>
 
         </Grid>
-        <TextBox Margin="0,5,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="46"/>
-        <Button HorizontalAlignment="Stretch" Height="35" Content="RESET" Background="#FF2FB628" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"></Button>
+        <TextBox Margin="0,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="X player's turn" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="46"/>
+        <Button HorizontalAlignment="Stretch" Height="40" Content="RESET" Background="#FF2FB628" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"></Button>
     </StackPanel>
     
 </Window>
